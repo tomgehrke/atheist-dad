@@ -4,24 +4,13 @@ title: Home
 ---
 
 <section class="home-hero">
-  <div class="page-shell">
-    <p class="eyebrow">atheist.dad</p>
-    <h1>{{ site.title }}</h1>
-    <p class="hero-copy">{{ site.description }}</p>
-  </div>
+  <p class="eyebrow">atheist.dad</p>
+  <h1>{{ site.title }}</h1>
+  <p class="hero-copy">{{ site.description }}</p>
 </section>
 
 <section class="page-shell home-intro">
-  <p>Welcome to <strong>atheist.dad</strong>, a space for writing about technology, art, science, opinion, and atheism from a secular perspective.</p>
-</section>
-
-<section class="page-shell feature-grid">
-  {% for category in site.data.categories %}
-    <article class="feature-card">
-      <h2><a href="{{ '/categories/' | relative_url }}{{ category.slug }}/">{{ category.label }}</a></h2>
-      <p>{{ category.description }}</p>
-    </article>
-  {% endfor %}
+  <p>Welcome to <strong>atheist.dad</strong>, a place for short essays, ideas, and conversations on technology, art, science, opinion, and secular life.</p>
 </section>
 
 <section class="page-shell recent-posts">
@@ -30,10 +19,10 @@ title: Home
   </header>
   <ul>
     {% for post in site.posts limit:5 %}
-      <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-      </li>
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+    </li>
     {% endfor %}
   </ul>
 </section>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
@@ -13,11 +13,9 @@
           <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
           <p class="site-tagline">{{ site.description }}</p>
         </div>
-
         <nav class="site-nav" aria-label="Primary navigation">
           <a href="{{ '/' | relative_url }}">Home</a>
           <a href="{{ '/tags/' | relative_url }}">Tags</a>
-          <a href="{{ '/categories/' | relative_url }}">Categories</a>
           <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
         </nav>
       </header>
@@ -27,20 +25,22 @@
       </main>
 
       <footer class="site-footer">
-        <p>© {{ site.title }} — generated with Jekyll</p>
+        <p>© {{ site.title }}</p>
       </footer>
     </div>
 
-    <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/search.js"></script>
-
-    {% if site.google_analytics and site.google_analytics != "" %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-      gtag('config', '{{ site.google_analytics }}');
+      const toggle = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      const mode = localStorage.getItem('atheistdad-theme') || 'dark';
+      if (mode === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      }
+      toggle && toggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        if (next === 'dark') root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+        localStorage.setItem('atheistdad-theme', next);
+      });
     </script>
-    {% endif %}
   </body>
 </html>

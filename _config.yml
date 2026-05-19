@@ -1,20 +1,17 @@
 title: atheist.dad
 email: ""
-description: "Living as an atheist in today's world — thoughts on tech, art, science, opinion, and societal reflection."
+description: "A minimal Jekyll blog for atheist.dad"
 baseurl: ""
 url: "https://atheist.dad"
 markdown: kramdown
 permalink: /:categories/:year/:month/:day/:title/
 
-plugins:
-  - jekyll-seo-tag
-
-# Analytics (leave blank and add your ID in README instructions)
-google_analytics: ""
-
 collections:
   posts:
     output: true
+
+plugins:
+  - jekyll-seo-tag
 
 defaults:
   - scope:
@@ -26,3 +23,4 @@ defaults:
 exclude:
   - Gemfile.lock
   - vendor/
+  - .jekyll-cache/

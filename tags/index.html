@@ -3,16 +3,24 @@ layout: default
 title: Tags
 ---
 
-<main class="wrap">
-  <h1>Tags</h1>
+<section class="page-shell">
+  <header>
+    <h1>Tags</h1>
+    <p>Browse posts by tag.</p>
+  </header>
+  <ul class="tag-list">
+    {% for tag in site.tags %}
+      <li><a href="#{{ tag[0] }}">{{ tag[0] }} ({{ tag[1].size }})</a></li>
+    {% endfor %}
+  </ul>
   {% for tag in site.tags %}
-  <section>
-    <h2 id="tag-{{ tag[0] }}">{{ tag[0] }} ({{ tag[1].size }})</h2>
-    <ul>
-      {% for post in tag[1] %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> — <small>{{ post.date | date: "%b %-d, %Y" }}</small></li>
-      {% endfor %}
-    </ul>
-  </section>
+    <section id="{{ tag[0] }}">
+      <h2>{{ tag[0] }}</h2>
+      <ul>
+        {% for post in tag[1] %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endfor %}
-</main>
+</section>
