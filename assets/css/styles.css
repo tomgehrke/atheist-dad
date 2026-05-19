@@ -24,12 +24,6 @@ a:hover, a:focus { color: #38bdf8; text-decoration: underline; }
 .site-nav a, button#theme-toggle { color: #cbd5e1; padding: 0.55rem 0.85rem; border-radius: 999px; border: 1px solid rgba(148, 163, 184, 0.08); background: rgba(148, 163, 184, 0.08); transition: all 0.2s ease; }
 .site-nav a:hover, button#theme-toggle:hover { background: rgba(125, 211, 252, 0.16); color: #f8fafc; }
 
-.home-hero { background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(5, 7, 13, 1)); border-bottom: 1px solid rgba(148, 163, 184, 0.1); padding: 4rem 0 3rem; }
-.home-hero .page-shell { padding: 0; }
-.eyebrow { margin: 0 0 1rem; font-size: 0.82rem; letter-spacing: 0.24em; text-transform: uppercase; color: #38bdf8; }
-.home-hero h1 { margin: 0; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.03; max-width: 12ch; }
-.hero-copy { margin: 1.2rem 0 0; max-width: 45rem; color: #cbd5e1; font-size: 1.05rem; line-height: 1.85; }
-
 .home-intro { margin-bottom: 2.5rem; }
 .home-intro p { margin: 0; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(148, 163, 184, 0.16); background: rgba(15, 23, 42, 0.92); color: #cbd5e1; }
 
