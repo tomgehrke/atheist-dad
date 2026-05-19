@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">{{ page.date | date: "%B %d, %Y" }} {% if page.categories %}• {{ page.categories | join: ", " }}{% endif %}</p>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  {% if page.tags %}
+  <p class="tags">Tags: {% for t in page.tags %}<span class="tag">{{ t }}</span>{% if forloop.last == false %}, {% endif %}{% endfor %}</p>
+  {% endif %}
+</article>

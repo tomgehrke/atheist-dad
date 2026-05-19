@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<main class="container">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+
+  <section>
+    <h2>Recent posts</h2>
+    <ul>
+      {% for post in site.posts limit:10 %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> — <small>{{ post.date | date: "%b %-d, %Y" }}</small></li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tags</h2>
+    <ul>
+      {% for tag in site.tags %}
+      <li>{{ tag[0] }} ({{ tag[1].size }})</li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+---
+layout: default
+title: Home
+---
+
+<section class="home-intro">
+  <p>Welcome to <strong>atheist.dad</strong>, a space for writing about technology, art, science, opinion, and atheism from a secular perspective.</p>
+</section>
+
+<section class="feature-grid">
+  {% for category in site.data.categories %}
+    <article class="feature-card">
+      <h2><a href="/categories/{{ category.slug }}/">{{ category.label }}</a></h2>
+      <p>{{ category.description }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="recent-posts">
+  <header>
+    <h2>Recent posts</h2>
+  </header>
+  <ul>
+    {% for post in site.posts limit:5 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

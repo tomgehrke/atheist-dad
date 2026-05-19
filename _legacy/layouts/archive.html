@@ -1,0 +1,24 @@
+<section class="archive-page">
+  <header class="archive-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p>{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <ul class="post-list">
+    {% assign archived_posts = site.posts %}
+    {% if page.category %}
+      {% assign archived_posts = archived_posts | where_exp: "item", "item.categories contains page.category" %}
+    {% elsif page.tag %}
+      {% assign archived_posts = archived_posts | where_exp: "item", "item.tags contains page.tag" %}
+    {% endif %}
+
+    {% for post in archived_posts %}
+      <li class="post-list-item">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-list-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
