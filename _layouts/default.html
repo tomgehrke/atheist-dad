@@ -7,29 +7,34 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-        <div class="controls">
-          <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+    <div class="page-shell">
+      <header class="site-header">
+        <div>
+          <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          <p class="site-tagline">{{ site.description }}</p>
         </div>
-      </div>
-    </header>
 
-    <div class="content">
-      {{ content }}
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          <a href="{{ '/categories/' | relative_url }}">Categories</a>
+          <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+        </nav>
+      </header>
+
+      <main>
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <p>© {{ site.title }} — generated with Jekyll</p>
+      </footer>
     </div>
-
-    <footer class="site-footer">
-      <div class="wrap">© {{ site.title }} — generated with Jekyll</div>
-    </footer>
 
     <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/search.js"></script>
 
-    <!-- Analytics placeholder: set `google_analytics` in _config.yml or add your provider here -->
     {% if site.google_analytics and site.google_analytics != "" %}
-    <!-- Google Analytics snippet (add your ID in _config.yml) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
